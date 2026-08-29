@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+              BackgroundColor="White"
+             x:Class="ingaDrive.Cadastrar">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Padding="80" VerticalOptions="Start" HorizontalOptions="Center">
+                <Label Text="PREENCHA SEUS DADOS" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+            </StackLayout>
+            <Label Text="NOME:" FontSize="Body" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Entry x:Name="txtNome" Keyboard="Default" ReturnType="Next"
+                   ClearButtonVisibility="WhileEditing" TextColor="Black" Margin="30,0,30,0"/>
+            
+            <Label Text="E-MAIL:" FontSize="Body" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Entry x:Name="txtEmail" Keyboard="Default" ReturnType="Next"
+                   ClearButtonVisibility="WhileEditing" TextColor="Black" Margin="30,0,30,0"/>
+
+            <Label Text="NÚMERO:" FontSize="Body" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>
+            <Entry x:Name="txtNumero" Keyboard="Telephone" ReturnType="Next"
+                   ClearButtonVisibility="WhileEditing" TextColor="Black" Margin="30,0,30,0"/>
+
+            <Label Text="SENHA:" FontSize="Body" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black"/>
+            <Entry x:Name="txtSenha" Keyboard="Default" ReturnType="Next" IsPassword="True"
+                   ClearButtonVisibility="WhileEditing" TextColor="Black" Margin="30,0,30,20"/>
+
+            <Button x:Name="btnLogin" Text="REGISTRAR" BackgroundColor="DarkOrange" Margin="30,0,30,0" TextColor="White" Clicked="btnLogin_Clicked"/>
+            <Button x:Name="btnVOLTAR" Text="VOLTAR" BackgroundColor="Gray" Margin="30,0,30,0" TextColor="White" Clicked="btnVOLTAR_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

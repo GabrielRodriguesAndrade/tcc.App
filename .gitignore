@@ -1,0 +1,17 @@
+.vs/
+**/bin/
+**/obj/
+*.user
+*.suo
+*.pdb
+*.dll
+*.exe
+*.apk
+*.aab
+*.keystore
+*.jks
+*.pfx
+*.p12
+*.snk
+*.env
+*.env.*

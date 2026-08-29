@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ingaDrive.ConfirmarCandidatura"
+             BarBackgroundColor="Black"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
+    
+
+
+
+
+    <ContentPage Title="CONFIRMAR CANDIDATURA">
+        <ContentPage.Content>
+            <StackLayout >
+                <CollectionView Margin="10" HorizontalOptions="Center" x:Name="clvCandidatura">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame BorderColor="Black" HasShadow="False" CornerRadius="5" >
+                                    <StackLayout>
+                                        <Label Text="{Binding empresa}" 
+                                       FontAttributes="Bold" 
+                                       FontSize="Title" 
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"/>
+                                        <Label Text="{Binding local}" 
+                                       FontSize="Medium" 
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"/>
+                                        <Label Text="{Binding dataFinal}" 
+                                       FontSize="Small"
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"/>
+                                        <Label Text="{Binding vagasRestantes,  StringFormat='Vagas disponíveis: {0}'}" 
+                                       FontSize="Small"
+                                       TextColor="Black" 
+                                       HorizontalOptions="Center"/>
+                                        <Label Text="{Binding valor}" 
+                                       FontSize="Medium"
+                                       FontAttributes="Bold"
+                                       TextColor="Black" 
+                                       HorizontalOptions="Center"/>
+                                    </StackLayout>
+                                </Frame>
+
+                                <Label Text="Você deseja se candidatar para esta vaga?" VerticalOptions="Start" 
+                                       HorizontalOptions="Center" Margin="20"/>
+                                
+                                <Button Text="CONFIRMAR CANDIDATURA" CornerRadius="20" BackgroundColor="DarkOrange" x:Name="btnConfirmar"
+                                        TextColor="White" VerticalOptions="Center" Margin="0,160,0,10" Clicked="btnConfirmar_Clicked"/>
+                                
+                                <Button Text="CANCELAR" CornerRadius="20" TextColor="white" x:Name="btnCancelar"
+                                        VerticalOptions="Start" BackgroundColor="Gray" Clicked="btnCancelar_Clicked"/>
+                                
+                            </StackLayout>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+</TabbedPage>

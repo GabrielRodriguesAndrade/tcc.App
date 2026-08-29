@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White"
+             x:Class="ingaDrive.Login">
+    <Grid>
+        <StackLayout>
+            <StackLayout Padding="50" VerticalOptions="Start" HorizontalOptions="Center">
+                <Label Text="LOGIN" FontSize="Title" TextColor="Black" FontAttributes="Bold"/>
+            </StackLayout>
+
+            <StackLayout VerticalOptions="Center">
+                <Frame BackgroundColor="Transparent" Margin="20">
+                    <StackLayout>
+                        <Label Text="E-mail" FontSize="Body" TextColor="Black" HorizontalOptions="Start"/>
+                        <Entry x:Name="txtEmail" Keyboard="Default" ReturnType="Next" ClearButtonVisibility="WhileEditing" TextColor="Black"/>
+                        <Label Text="Senha" FontSize="Body" TextColor="Black" HorizontalOptions="Start"/>
+                        <Entry x:Name="txtSenha" Keyboard="Default" ReturnType="Done" IsPassword="True" ClearButtonVisibility="WhileEditing" TextColor="Black"/>
+                    </StackLayout>
+                </Frame>
+                <Button x:Name="btnEntrar" Text="ENTRAR" BackgroundColor="DarkOrange" TextColor="White" 
+                        CornerRadius="20" Margin="30,0,30,0" Clicked="btnEntrar_Clicked"/>
+                <Button x:Name="btnVoltar" Text="VOLTAR" BackgroundColor="Gray" TextColor="White" 
+                        CornerRadius="20" Margin="30,0,30,0" Clicked="btnVoltar_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</ContentPage>

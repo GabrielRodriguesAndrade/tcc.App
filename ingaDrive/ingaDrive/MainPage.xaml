@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"   
+             BackgroundColor="White"
+             BarBackgroundColor="Black"
+             SelectedTabColor="DarkOrange"
+             UnselectedTabColor="Gray"
+             x:Class="ingaDrive.MainPage">
+
+    <ContentPage Title="Calendario">
+        <StackLayout>
+            <CarouselView x:Name="crsView" PositionChanged="CarouselView_PositionChanged">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+
+                            <Label Text="{Binding nomeMes}" 
+                                    FontSize="30" 
+                                    HorizontalOptions="Center" 
+                                    TextColor="Black" 
+                                    Margin="10"/>
+
+                            <Grid HeightRequest="50" Margin="10,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Dom" Grid.Column="0" HorizontalOptions="Center" TextColor="Gray"/>
+                                <Label Text="Seg" Grid.Column="1" HorizontalOptions="Center" TextColor="Gray"/>
+                                <Label Text="Ter" Grid.Column="2" HorizontalOptions="Center" TextColor="Gray"/>
+                                <Label Text="Qua" Grid.Column="3" HorizontalOptions="Center" TextColor="Gray"/>
+                                <Label Text="Qui" Grid.Column="4" HorizontalOptions="Center" TextColor="Gray"/>
+                                <Label Text="Sex" Grid.Column="5" HorizontalOptions="Center" TextColor="Gray"/>
+                                <Label Text="Sáb" Grid.Column="6" HorizontalOptions="Center" TextColor="Gray"/>
+                            </Grid>
+
+                            <CollectionView ItemsSource="{Binding dias}"
+                                    ItemsLayout="VerticalGrid, 7"
+                                    SelectionMode="None">
+
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Frame Padding="10"
+                                           CornerRadius="10"
+                                           Margin="2"
+                                           HasShadow="False">
+
+                                            <Frame.Triggers>
+                                                <DataTrigger TargetType="Frame"
+                                                         Binding="{Binding temEvento}"
+                                                         Value="True">
+                                                    <Setter Property="BackgroundColor" Value="DarkOrange" />
+                                                </DataTrigger>
+                                            </Frame.Triggers>
+
+                                            <Label Text="{Binding diaNumero}" 
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center" 
+                                           TextColor="Black"/>
+                                        </Frame>
+
+
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+
+                            </CollectionView>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+            <!-- Lista com os eventos Agendados que o usuario ira trabalhar -->
+            <CollectionView x:Name="clvEventos">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame
+                               Margin="10"
+                               CornerRadius="20"
+                               HasShadow="False"
+                               BackgroundColor="White">
+                            <StackLayout Margin="10">
+                                <Label Text="{Binding empresa}" 
+                                       FontAttributes="Bold" 
+                                       FontSize="Medium" 
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"/>
+                                <Label Text="{Binding local}" 
+                                       FontSize="Small" 
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"/>
+                                <Label Text="{Binding dataFinal}" 
+                                       FontSize="Small"
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"/>
+                                <Label Text="{Binding valor}" 
+                                       FontSize="Small"
+                                       TextColor="Black" 
+                                       HorizontalOptions="Center"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+    </ContentPage>
+
+    <ContentPage Title="VAGAS DISPONÍVEIS">
+        <StackLayout>
+            <CollectionView x:Name="clvVagas">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame HasShadow="False" >
+                            <StackLayout>
+                                <Label Text="{Binding empresa}" 
+                                       FontAttributes="Bold" 
+                                       FontSize="Title" 
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"/>
+                                <Label Text="{Binding local}" 
+                                       FontSize="Medium" 
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"/>
+                                <Label Text="{Binding dataFinal}" 
+                                       FontSize="Small"
+                                       TextColor="Black"
+                                       HorizontalOptions="CenterAndExpand"/>
+                                <Label Text="{Binding vagasRestantes,  StringFormat='Vagas disponíveis: {0}'}" 
+                                       FontSize="Small"
+                                       TextColor="Black" 
+                                       HorizontalOptions="Center"/>
+                                <Label Text="{Binding valor}" 
+                                       FontSize="Medium"
+                                       FontAttributes="Bold"
+                                       TextColor="Black" 
+                                       HorizontalOptions="Center"/>
+                                <Button x:Name="btnCandidatar" Text="CANDIDATAR-SE" CornerRadius="20" HorizontalOptions="Center"
+                                        BackgroundColor="DarkOrange" Clicked="btnCandidatar_Clicked"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage>
+
+</TabbedPage>
